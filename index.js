@@ -15,7 +15,6 @@ if (!clubId) {
   clubId = 114729
   console.error('CLUB_ID is required!')
   //process.exit(1)
-  
 }
 
 var controller = Botkit.slackbot()
