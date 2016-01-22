@@ -1,17 +1,17 @@
-name: nodebot
+name: Strava Club Activity Shamer
 description: A simple node.js starter bot for Beep Boop
 avatar: resources/avatar.png
-#background: resources/background.png
-#config:
-#  - name: OPTION
-#    friendly_name: Some Unnecessary Option
-#    info: This is an unnecessary option
-#    default: the default value
-#  - name: SECRET
-#    friendly_name: Shhhh
-#    info: This is an secret option
-#    type: secret
-#    default: not secret though
+background: resources/background.png
+config:
+  - name: CLUB_ID
+    friendly_name: Strava Club ID
+    info: Required. Grab your club id from Strava through the club's "Recent Activity" URL on Strava.
+    default: 1
+  - name: STRAVA_TOKEN
+    friendly_name: Strava Token
+    info: Required. Retrieve your the strava token from https://www.strava.com/settings/api
+    type: secret
+    default: no default
 #screenshots:
 #  - screenshot: resources/screenshot1.png
 #  - screenshot: resources/screenshot2.jpg
