@@ -12,8 +12,9 @@ if (!slackToken) {
 
 var clubId = process.env.CLUB_ID
 if (!clubId) {
+  clubId = 114729
   console.error('CLUB_ID is required!')
-  process.exit(1)
+  //process.exit(1)
 }
 
 var controller = Botkit.slackbot()
@@ -41,7 +42,7 @@ var motivations = [
   'There will be no crying or whining for any reason or a reason will be issued to you.',
 ]
 
-controller.hears('lazy', ['direct_message','direct_mention'], function (bot, message) {
+controller.hears('strava stats', ['direct_message','direct_mention'], function (bot, evt) {
   strava.clubs.listMembers({id:clubId},function(err, members) {
     strava.clubs.listActivities({id:clubId},function(err, activities) {
       let shamingList = []
@@ -71,9 +72,9 @@ controller.hears('lazy', ['direct_message','direct_mention'], function (bot, mes
   });
 })
 
-controller.hears('help', ['direct_message', 'direct_mention'], function (bot, message) {
+controller.hears(['strava help', 'help', 'strava'], ['direct_message', 'direct_mention'], function (bot, message) {
   var help = 'I will respond to the following messages: \n' +
-      '`strava leaderboard` for a simple message.\n' +
+      '`strava stats` for a simple message.\n' +
       '`bot help` to see this again.'
   bot.reply(message, help)
 })
