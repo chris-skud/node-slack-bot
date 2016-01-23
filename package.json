@@ -4,6 +4,7 @@
   "description": "Bot that reports club activities",
   "main": "index.js",
   "dependencies": {
+    "async": "^1.5.2",
     "botkit": "0.0.5",
     "strava-v3": "^1.9.0"
   },
