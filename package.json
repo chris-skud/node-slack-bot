@@ -1,27 +1,24 @@
 {
-  "name": "node-slack-bot",
+  "name": "node-strava-bot",
   "version": "1.0.0",
-  "description": "A sample Beep Boop Node.js Slackbot",
+  "description": "Bot that reports club activities",
   "main": "index.js",
+  "dependencies": {
+    "botkit": "0.0.5",
+    "strava-v3": "^1.9.0"
+  },
+  "devDependencies": {},
   "scripts": {
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/beepboophq/node-slack-bot.git"
+    "url": "git+https://github.com/chris-skud/node-strava-bot.git"
   },
-  "keywords": [
-    "slackbot",
-    "bot",
-    "slack"
-  ],
-  "author": "",
-  "license": "MIT",
+  "author": "@chris-skud",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/beepboophq/node-slack-bot/issues"
+    "url": "https://github.com/chris-skud/node-strava-bot/issues"
   },
-  "homepage": "https://github.com/beepboophq/node-slack-bot#readme",
-  "dependencies": {
-    "botkit": "0.0.5"
-  }
+  "homepage": "https://github.com/chris-skud/node-strava-bot#readme"
 }
