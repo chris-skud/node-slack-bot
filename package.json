@@ -8,10 +8,10 @@
     "botkit": "0.0.5",
     "strava-v3": "^1.9.0"
   },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
+  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chris-skud/node-strava-bot.git"

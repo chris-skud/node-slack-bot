@@ -10,9 +10,16 @@ if (!slackToken) {
   process.exit(1)
 }
 
+var stravaToken = process.env.STRAVA_ACCESS_TOKEN
+if (!stravaToken) {
+  console.error('STRAVA_ACCESS_TOKEN is required!')
+  process.exit(1)
+
+}
+
 var clubId = process.env.CLUB_ID
 if (!clubId) {
-  clubId = 114729
+  clubId = '114729'
   console.error('CLUB_ID is required!')
   //process.exit(1)
 }
@@ -67,14 +74,14 @@ controller.hears('strava stats', ['direct_message','direct_mention'], function (
       });
 
       lazyStr += motivations[Math.floor(Math.random()*(motivations.length+1))]
-      bot.reply(message, lazyStr)
+      bot.reply(evt, lazyStr)
     });
   });
 })
 
-controller.hears(['strava help', 'help', 'strava'], ['direct_message', 'direct_mention'], function (bot, message) {
+controller.hears(['strava help', 'help', 'strava'], ['direct_message', 'direct_mention'], function (bot, evt) {
   var help = 'I will respond to the following messages: \n' +
       '`strava stats` for a simple message.\n' +
       '`bot help` to see this again.'
-  bot.reply(message, help)
+  bot.reply(evt, help)
 })

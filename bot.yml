@@ -7,7 +7,7 @@ config:
     friendly_name: Strava Club ID
     info: Required. Grab your club id from Strava through the club's "Recent Activity" URL on Strava.
     default: 1
-  - name: STRAVA_TOKEN
+  - name: STRAVA_ACCESS_TOKEN
     friendly_name: Strava Token
     info: Required. Retrieve your the strava token from https://www.strava.com/settings/api
     type: secret
