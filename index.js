@@ -1,4 +1,4 @@
-"use strict";
+'use strict'
 
 var Botkit = require('botkit')
 var strava = require('strava-v3')
@@ -14,14 +14,12 @@ var stravaToken = process.env.STRAVA_ACCESS_TOKEN
 if (!stravaToken) {
   console.error('STRAVA_ACCESS_TOKEN is required!')
   process.exit(1)
-
 }
 
 var clubId = process.env.CLUB_ID
 if (!clubId) {
-  clubId = '114729'
   console.error('CLUB_ID is required!')
-  //process.exit(1)
+  process.exit(1)
 }
 
 var controller = Botkit.slackbot()
@@ -46,37 +44,37 @@ var motivations = [
   'Gat yer arse on that tarmac ya Big Mac eating duffelbagers.',
   'All I do is eat gunpowder and run. What about you?',
   'Go away, you smell like failure and corn chips.',
-  'There will be no crying or whining for any reason or a reason will be issued to you.',
+  'There will be no crying or whining for any reason or a reason will be issued to you.'
 ]
 
-controller.hears('strava stats', ['direct_message','direct_mention'], function (bot, evt) {
-  strava.clubs.listMembers({id:clubId},function(err, members) {
-    strava.clubs.listActivities({id:clubId},function(err, activities) {
+controller.hears('strava stats', ['direct_message', 'direct_mention'], function (bot, evt) {
+  strava.clubs.listMembers({id: clubId}, function (err, members) {
+    strava.clubs.listActivities({id: clubId}, function (err, activities) {
       let shamingList = []
-      members.forEach(function(member) {
+      members.forEach(function (member) {
         let memberHasActivity = false
-        activities.forEach(function(activity) {
+        activities.forEach(function (activity) {
           if (member.id === activity.athlete.id) {
             memberHasActivity = true
           }
-        });
+        })
 
         if (!memberHasActivity) {
           shamingList.push(member)
-          console.log(member.firstname + " does not have activities")
+          console.log(member.firstname + ' does not have activities')
         }
-      });
+      })
 
-      let lazyStr = ""
-      shamingList.forEach(function(shamee, index) {
-        let comma = (index !== shamingList.length) ? ", " : ""
-        lazyStr += shamee.firstname + " " + shamee.lastname + comma
-      });
+      let lazyStr = ''
+      shamingList.forEach(function (shamee, index) {
+        let comma = (index !== shamingList.length) ? ', ' : ''
+        lazyStr += shamee.firstname + ' ' + shamee.lastname + comma
+      })
 
-      lazyStr += motivations[Math.floor(Math.random()*(motivations.length+1))]
+      lazyStr += motivations[Math.floor(Math.random() * (motivations.length + 1))]
       bot.reply(evt, lazyStr)
-    });
-  });
+    })
+  })
 })
 
 controller.hears(['strava help', 'help', 'strava'], ['direct_message', 'direct_mention'], function (bot, evt) {
